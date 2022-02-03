@@ -1,0 +1,20 @@
+<ion-content>
+  <div id="header">
+    <div id="logo">
+      <img src="./assets/logo.png" alt="" srcset="">
+    </div>
+    <h2>Crypto Inc Gold</h2>
+  </div>
+
+  <ion-card class="ion-padding">
+    <ion-card-content>
+      <h1>Welcome to Crypto Inc Gold</h1>
+      <p>Welcome to the age of cryptocurrencies</p>
+
+      <ion-button (click)="signIn()" expand="block" shape="round" class="ion-margin-bottom">Sign In</ion-button>
+      <ion-button (click)="signUp()" expand="block" shape="round">Sign Up</ion-button>
+
+      <app-social-auth></app-social-auth>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

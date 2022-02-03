@@ -1,3 +1,60 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+
+  <ion-split-pane contentId="main-content">
+    <ion-menu side="start" contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list class="ion-text-center main-header">
+          <div align="center">
+            <ion-avatar>
+              <img src="https://picsum.photos/200" alt="">
+            </ion-avatar>
+            <ion-label color="light">User Testing
+              <p class="user-details">
+                <ion-text color="light">usertest.golden@yopmail.com</ion-text>
+              </p>
+            </ion-label>
+          </div>
+        </ion-list>
+
+          <ion-menu-toggle class="menu-items" [autoHide]="false" *ngFor="let page of pages; let i = index;">
+            <ion-item
+            *ngIf="!page?.route"
+              color="none"
+              class="ion-padding-start"
+              lines="none"
+              details="false"
+              [routerLink]="[page.url]"
+              routerDirection="root"
+              routerLinkActive="selected"
+              >
+              <ion-icon  slot="start" [ios]="page.icon + '-outline'" [md]="page.icon + '-sharp'"></ion-icon>
+              <ion-label color="light" >{{ page.title }}</ion-label>
+            </ion-item>
+            <ion-item
+            *ngIf="page?.route"
+              color="none"
+              class="ion-padding-start"
+              lines="none"
+              details="false"
+              (click)="singOut()"
+              >
+              <ion-icon color="light" slot="start" [ios]="page.icon + '-outline'" [md]="page.icon + '-sharp'"></ion-icon>
+              <ion-label color="light" >{{ page.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+      </ion-content>
+      <ion-footer class="ion-no-border" lines="none">
+        <ion-toolbar color="primary" lines="none">
+          <ion-item color="primary" lines="none">
+            <ion-label>Contact us</ion-label>
+            <ion-icon slot="end" name="logo-facebook" color="medium"></ion-icon>
+            <ion-icon slot="end" name="logo-google" color="medium"></ion-icon>
+            <ion-icon slot="end" name="globe-outline" color="medium"></ion-icon>
+          </ion-item>
+        </ion-toolbar>
+      </ion-footer>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-split-pane>
+
+
